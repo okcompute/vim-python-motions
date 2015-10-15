@@ -24,7 +24,12 @@ function! s:move_normal(pattern, direction)
             let repeat = repeat - 1
         endif
     endwhile
-    return [line, column]
+    call cursor(line)
+    " Open the fold if there is any
+    try
+        normal zo
+    catch
+    endtry
 endfunction
 
 
