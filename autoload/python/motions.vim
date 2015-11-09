@@ -30,14 +30,14 @@ function! s:move_normal(pattern, direction)
         normal zo
     catch
     endtry
+    return [line, column]
 endfunction
 
 
 " Move cursor to the next pattern position while using visual mode.
-" TODO: do we really need this?!!!
 function! s:move_visual(pattern, direction) range
     call cursor(a:lastline, 0)
-    let end = s:move(a:pattern, a:direction)
+    let end = s:move_normal(a:pattern, a:direction)
     call cursor(a:firstline, 0)
     normal! v
     call cursor(end)
