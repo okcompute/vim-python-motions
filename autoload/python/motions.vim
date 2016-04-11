@@ -24,7 +24,7 @@ function! s:move_normal(pattern, direction)
             let repeat = repeat - 1
         endif
     endwhile
-    call cursor(line, 0)
+    call cursor(line, column)
     " Open the fold if there is any
     try
         normal zo
@@ -33,18 +33,18 @@ function! s:move_normal(pattern, direction)
     return [line, column]
 endfunction
 
-
 " Move cursor to the next pattern position while using visual mode.
 function! s:move_visual(pattern, direction) range
-    call cursor(a:lastline, 0)
-    let end = s:move_normal(a:pattern, a:direction)
-    call cursor(a:firstline, 0)
-    normal! v
-    call cursor(end, 0)
+    let result = s:move_normal(a:pattern, a:direction)
+    " Re-enable visual mode that was disabled by the mapping
+    exec('normal! gv')
+    "  Move cursor to search result if any
+    if result[0] != 0
+        call cursor(result)
+    endif
 endfunction
 
 " }}}
-
 
 " {{{
 

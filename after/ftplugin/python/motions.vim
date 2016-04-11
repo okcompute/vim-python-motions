@@ -17,9 +17,9 @@ onoremap <buffer> [M  :<C-U>call python#motions#move_to_function('normal', 'back
 onoremap <buffer> ]]  :<C-U>call python#motions#move_to_definition('normal','foward')<CR>
 onoremap <buffer> [[  :<C-U>call python#motions#move_to_definition('normal','backward')<CR>
 
-vnoremap <buffer> ]C  :<C-U>call python#motions#move_to_class('visual', 'foward')<CR>
-vnoremap <buffer> [C  :<C-U>call python#motions#move_to_class('visual', 'backward')<CR>
-vnoremap <buffer> ]M  :<C-U>call python#motions#move_to_function('visual', 'foward')<CR>
-vnoremap <buffer> [M  :<C-U>call python#motions#move_to_function('visual', 'backward')<CR>
-vnoremap <buffer> ]]  :<C-U>call python#motions#move_to_definition('visual','foward')<CR>
-vnoremap <buffer> [[  :<C-U>call python#motions#move_to_definition('visual','backward')<CR>
+vnoremap <buffer> ]C  <Esc>:<C-U>call python#motions#move_to_class('visual', 'foward')<CR>
+vnoremap <buffer> [C  <Esc>:<C-U>call python#motions#move_to_class('visual', 'backward')<CR>
+vnoremap <buffer> ]M  <Esc>:<C-U>call python#motions#move_to_function('visual', 'foward')<CR>
+vnoremap <buffer> [M  <Esc>:<C-U>call python#motions#move_to_function('visual', 'backward')<CR>
+vnoremap <buffer> ]]  <Esc>:<C-U>call python#motions#move_to_definition('visual','foward')<CR>
+vnoremap <buffer> [[  <Esc>:<C-U>call python#motions#move_to_definition('visual','backward')<CR>
